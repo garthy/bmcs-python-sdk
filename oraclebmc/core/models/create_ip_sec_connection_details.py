@@ -2,9 +2,10 @@
 # Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
 
 
-from ...util import formatted_flat_dict, initkwargs
+from ...util import formatted_flat_dict, initkwargs, erroronunknownattributeset
 
 
+@erroronunknownattributeset
 class CreateIPSecConnectionDetails(object):
 
     @initkwargs
@@ -125,7 +126,8 @@ class CreateIPSecConnectionDetails(object):
         """
         Gets the static_routes of this CreateIPSecConnectionDetails.
         Static routes to the CPE. At least one route must be included. The CIDR must not be a
-        multicast address or class E address.
+        multicast address or @erroronunknownattributeset
+class E address.
         Example: `10.0.1.0/24`
 
         :return: The static_routes of this CreateIPSecConnectionDetails.
@@ -138,7 +140,8 @@ class CreateIPSecConnectionDetails(object):
         """
         Sets the static_routes of this CreateIPSecConnectionDetails.
         Static routes to the CPE. At least one route must be included. The CIDR must not be a
-        multicast address or class E address.
+        multicast address or @erroronunknownattributeset
+class E address.
         Example: `10.0.1.0/24`
 
         :param static_routes: The static_routes of this CreateIPSecConnectionDetails.

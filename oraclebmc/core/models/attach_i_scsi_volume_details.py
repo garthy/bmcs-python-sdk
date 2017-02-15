@@ -2,9 +2,10 @@
 # Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
 
 from .attach_volume_details import AttachVolumeDetails
-from ...util import formatted_flat_dict, initkwargs
+from ...util import formatted_flat_dict, initkwargs, erroronunknownattributeset
 
 
+@erroronunknownattributeset
 class AttachIScsiVolumeDetails(AttachVolumeDetails):
 
     @initkwargs

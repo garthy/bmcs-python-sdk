@@ -107,7 +107,25 @@ def initkwargs(fn):
         fn(self)
         for kw, value in kwargs.items():
             if kw not in self.swagger_types:
-                raise TypeError("%s doesn't have atribute %s" %(self.__class__, kw))
+                raise AttributeError("%s is not an attribute of class %s" % (kw, self.__class__))
             else:
                 setattr(self, kw, value)
     return init
+
+
+# Pretty damn evil!
+# But catches misspelling of attributes
+def erroronunknownattributeset(cls):
+    functools.wraps(cls)
+    def __setattr__(self, name, value):
+        if name not in ['attribute_map',
+                        'swagger_types']:
+            lookupname = name
+            if name.startswith('_'):
+                lookupname = lookupname[1:]
+            if lookupname not in self.swagger_types:
+                raise AttributeError("%s is not an attribute of class %s" % (name, self.__class__))
+        return super(self.__class__, self).__setattr__(name, value)
+    cls.__setattr__ =  __setattr__
+    return cls
+

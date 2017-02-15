@@ -2,9 +2,10 @@
 # Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
 
 
-from ...util import formatted_flat_dict, initkwargs
+from ...util import formatted_flat_dict, initkwargs, erroronunknownattributeset
 
 
+@erroronunknownattributeset
 class VolumeAttachment(object):
 
     @initkwargs
@@ -47,8 +48,10 @@ class VolumeAttachment(object):
     @staticmethod
     def get_subtype(object_dictionary):
         """
-        Given the hash representation of a subtype of this class,
-        use the info in the hash to return the class of the subtype.
+        Given the hash representation of a subtype of this @erroronunknownattributeset
+class,
+        use the info in the hash to return the @erroronunknownattributeset
+class of the subtype.
         """
         type = object_dictionary['attachmentType']
 
